@@ -1,14 +1,16 @@
-import output from '/core/output.js'
-import Commands from '/core/commands.js'
-import { sortText } from '/core/util.js'
+import output from './core/output.js'
+import Commands from './core/commands.js'
+import { sortText } from './core/util.js'
 
-import Room from '/module/room.js'
-import Connection from '/module/connection.js'
-import Person from '/module/person.js'
+import Room from './module/room.js'
+import Connection from './module/connection.js'
+import Person from './module/person.js'
+
+declare var moduleNames
 
 // set up event listener (setTimeout to prevent a bug), init some stuff
 setTimeout(() => {
-    const user_input = document.getElementById('user-input')
+    const user_input = document.getElementById('user-input') as HTMLInputElement
     user_input.disabled = false
     user_input.placeholder = ' ...'
     user_input.focus()
