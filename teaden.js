@@ -6,11 +6,10 @@ import Room from './module/room.js'
 import Connection from './module/connection.js'
 import Person from './module/person.js'
 
-declare var moduleNames
 
 // set up event listener (setTimeout to prevent a bug), init some stuff
 setTimeout(() => {
-    const user_input = document.getElementById('user-input') as HTMLInputElement
+    const user_input = document.getElementById('user-input')
     user_input.disabled = false
     user_input.placeholder = ' ...'
     user_input.focus()
