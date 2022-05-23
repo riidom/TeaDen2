@@ -30,7 +30,7 @@ const Room = {
         const player_loc = D.player.location
         const name = `Your location: ${D[player_loc].name}. `
         const descr = `${D[player_loc].descr} `
-        return [name, 0, descr, 1]
+        return [name, 0, descr, 10]
         // will 2 zurückgeben: name (ganz oben), descr (zweiter Slot)
         // array in array, optional?
         // Analyse auslagern in util, nicht in teaden.js:describe() ?

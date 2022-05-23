@@ -1,6 +1,6 @@
 import output from './core/output.js'
 import Commands from './core/commands.js'
-import { sortText } from './core/util.js'
+import { collectText } from './core/util.js'
 
 import Room from './module/room.js'
 import Connection from './module/connection.js'
@@ -45,11 +45,18 @@ function processInput (input_raw) {
 
 
 function describe () {
-    let text = ''
     let partsArray = []
+
+    // get current descriptions '.describe()' from all modules
     moduleNames.forEach(function (n) {
         const part = eval(`${n}.describe()`)
-        part && sortText(partsArray, part)
+        part && (partsArray = collectText(partsArray, part))
     })
-    output.addText(text)
+    
+    // sort the returned text snippets by priority
+    partsArray.sort((a, b) => a[1] - b[1])
+    
+    partsArray.forEach(text => {
+        output.addText(text[0])
+    })
 }

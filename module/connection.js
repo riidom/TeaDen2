@@ -60,7 +60,7 @@ const Connection = {
     },
 
     describe: function () {
-        return ["Exits...", 0]
+        return ["Exits...", 1]
     }
 }
 export default Connection
