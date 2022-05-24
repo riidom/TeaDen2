@@ -1,6 +1,5 @@
 
 function include (file, defer = false) {
-    console.log("include():     "+file)
     const script = document.createElement('script')
     script.type = 'module'
     script.defer = defer

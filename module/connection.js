@@ -55,12 +55,24 @@ const Connection = {
         if (!D[r1].exitTo) { D[r1].exitTo = {} }
         if (!D[r2].entryFrom) { D[r2].entryFrom = {} }
         
-        D[r1].exitTo[r2] = d
-        D[r2].entryFrom[r1] = this.getOpp(d)
+        D[r1].exitTo[d] = r2
+        D[r2].entryFrom[this.getOpp(d)] = r1
     },
 
     describe: function () {
-        return ["Exits...", 1]
+        const loc = D.player.location
+        if (!D[loc].exitTo) {
+            return ["There are no exits here.", 1]
+        } else {
+            let exits = ""
+            const dirs = Object.keys(D[loc].exitTo)
+            dirs.forEach(exit => {
+                exits += (this.dir[exit].name + ', ')
+            })
+            exits = exits.slice(0, -2)
+            exits = exits.replace(/, ([^,]+)$/, ' and $1')
+            return ["Exits: " + exits, 1]
+        }
     }
 }
 export default Connection
