@@ -18,8 +18,17 @@ const Connection = {
         Commands.add(
             'go',
             /^([neswudio])$/,
-            function (input) {
-                return input[1]
+            (input) => {
+                const loc = D.player.location
+                const inp = input[1]
+                console.log(this.dir)
+                if (D[loc].exitTo[inp]) {
+                    D.player.location = D[loc].exitTo[inp]
+                    F.clearScreen = true
+                    return "You went " + this.dir[inp].name + "."
+                } else {
+                    return "You can't go " + this.dir[inp].name + "."
+                }
             }
         )
         Commands.addAlias(
