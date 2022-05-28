@@ -15,25 +15,29 @@ const Commands = {
         checkForOverwrite(name, 'command-alias')
         C[name] = {
             regex,
+            func: false,
             alias: origin,
         }
     },
 
     
-    eval: function (input) {
+    evaluate: function (input) {
         for (let name in C) {
             const command = C[name]
             const result = command.regex.exec(input)
             
             if (result) {
+                // either func() or alias() have to exist
+
                 if (command.func) {
+                    console.log(command.func(result))
                     return command.func(result)
 
                 } else if (command.alias) {
                     return C[command.alias].func(result)
 
                 } else {
-                    console.log('Smth weird with Commands.eval()')
+                    console.log(`Check command '${name}', func() or alias() missing.`)
                     return false
                 }
             }
