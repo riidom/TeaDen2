@@ -32,7 +32,7 @@ setTimeout(() => {
 // process player input after submit, then give error or advance game
 function processInput (input_raw) {
     const input_proc = input_raw.toLocaleLowerCase().trim()
-    const result = Commands.eval(input_proc)
+    const result = Commands.evaluate(input_proc)
 
     if (result) {
         output.addText(result)

@@ -20,7 +20,7 @@ const Commands = {
     },
 
     
-    eval: function (input) {
+    evaluate: function (input) {
         for (let name in C) {
             const command = C[name]
             const result = command.regex.exec(input)
