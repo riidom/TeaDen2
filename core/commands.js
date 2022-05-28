@@ -3,6 +3,7 @@ const Commands = {
 
     add: function (name, regex, func) {
         checkForOverwrite(name, 'command')
+        // in module, func must be arrow function (bc. context of this)
         C[name] = {
             regex,
             func,
