@@ -35,12 +35,18 @@ function processInput (input_raw) {
     const result = Commands.evaluate(input_proc)
 
     if (result) {
-        output.addText(result)
+        if (F.clearScreen) {
+            output.clearText()
+            F.clearScreen = false
+            output.addText(result)
+            describe()
+        } else {
+            output.addText(result)
+        }
+        
     } else {
         output.addText(`Don't understand '${input_proc}'.`)
     }
-
-    describe()
 }
 
 
