@@ -56,7 +56,7 @@ Room.add({
 
 
 Connection.add('path n bench')
-Connection.add('bench n farm')
+Connection.add('bench n forest_1')
 
 
 
