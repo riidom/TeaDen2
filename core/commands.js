@@ -30,7 +30,6 @@ const Commands = {
                 // either func() or alias() have to exist
 
                 if (command.func) {
-                    console.log(command.func(result))
                     return command.func(result)
 
                 } else if (command.alias) {
