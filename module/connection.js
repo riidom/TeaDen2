@@ -17,11 +17,14 @@ const Connection = {
     init: function () {
         Commands.add(
             'go',
-            /^([neswudio])$/,
+            /^(n|e|s|w|u|d|i|o|north|east|south|west|up|down|in|out)$/,
             (input) => {
                 const loc = D.player.location
-                const inp = input[1]
-                console.log(this.dir)
+                let inp = input[1]
+                // transform e.g. "north" to "n"
+                if (inp.length > 1) {
+                    inp = inp.slice(0, 1)
+                }
                 if (D[loc].exitTo[inp]) {
                     D.player.location = D[loc].exitTo[inp]
                     F.clearScreen = true
@@ -33,7 +36,7 @@ const Connection = {
         )
         Commands.addAlias(
             'go_verbose',
-            /^(?:go) ([neswudio])$/,
+            /^(?:go) (n|e|s|w|u|d|i|o|north|east|south|west|up|down|in|out)$/,
             'go'
         )
     },
