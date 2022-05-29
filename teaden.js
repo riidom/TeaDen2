@@ -38,12 +38,13 @@ function processInput (input_raw) {
         if (F.clearScreen) {
             output.clearText()
             F.clearScreen = false
-            output.addText(result)
+            // description from last turn in italics on top
+            output.addText(result, 'p', 'em')
             describe()
         } else {
             output.addText(result)
         }
-        
+
     } else {
         output.addText(`Don't understand '${input_proc}'.`)
     }
@@ -51,7 +52,8 @@ function processInput (input_raw) {
 
 
 function describe () {
-    let partsArray = []
+    // divider ("-" is placeholder for <hr>) sits at priority 0
+    let partsArray = [["-", 0]]
 
     // get current descriptions '.describe()' from all modules
     moduleNames.forEach(function (n) {
@@ -61,8 +63,15 @@ function describe () {
     
     // sort the returned text snippets by priority
     partsArray.sort((a, b) => a[1] - b[1])
-    
+
+    // 'span' is just a misused 'p' with no margin-bottom
     partsArray.forEach(text => {
-        output.addText(text[0])
+        if (text[1] > 0) {
+            output.addText(text[0])
+        } else if (text[1] < 0) {
+            output.addText(text[0], 'span')
+        } else {
+            output.addHtml('<hr>')
+        }
     })
 }

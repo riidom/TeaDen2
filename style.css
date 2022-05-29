@@ -137,7 +137,13 @@ main {
     margin-bottom: .5rem;
 }
 
+#win span {
+    display: block;
+    line-height: 1.4;
+}
+
 #win hr {
     border-color: #fff4;
     margin-bottom: 1rem;
+    margin-top: .5rem;
 }

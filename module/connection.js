@@ -83,7 +83,7 @@ const Connection = {
             })
             exits = exits.slice(0, -2)
             exits = exits.replace(/, ([^,]+)$/, ' and $1')
-            return ["Exits: " + exits, 1]
+            return ["Exits: " + exits, -5]
         }
     }
 }
