@@ -79,7 +79,7 @@ const Connection = {
             let exits = ""
             const dirs = Object.keys(D[loc].exitTo)
             dirs.forEach(exit => {
-                exits += (this.dir[exit].name + ', ')
+                exits = this.dir[exit].name + ', ' + exits
             })
             exits = exits.slice(0, -2)
             exits = exits.replace(/, ([^,]+)$/, ' and $1')
