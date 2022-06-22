@@ -1,149 +1,149 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    background: #000;
-    font-size: .75rem;
-    font-family: 'Times New Roman', Times, serif;
+  background: #000;
+  font-size: .75rem;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 body {
-    color: #fffa;
+  color: #fffa;
 }
 
 main {
-    width: 100vw;
-    height: 100vh;
-    padding: 1rem 0;
-    background: #161616;
-    display: grid;
-    grid-template-areas:
-        "stat-l win stat-r"
-        "stat-l inp stat-r";
-    grid-template-columns: 1fr 30ch 1fr;
-    grid-template-rows: 95% 1fr;
-    gap: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 1rem 0;
+  background: #161616;
+  display: grid;
+  grid-template-areas:
+    "stat-l win stat-r"
+    "stat-l inp stat-r";
+  grid-template-columns: 1fr 30ch 1fr;
+  grid-template-rows: 95% 1fr;
+  gap: 0;
 }
 
 @media (min-width: 30rem) {
 
-    html {
-        font-size: .8rem;
-    }
+  html {
+    font-size: .8rem;
+  }
 
-    main {
-        padding: 0;
-        grid-template-columns: 1fr 40ch 1fr;
-        gap: .25rem;
-    }
+  main {
+    padding: 0;
+    grid-template-columns: 1fr 40ch 1fr;
+    gap: .25rem;
+  }
 }
 
 @media (min-width: 40rem) {
 
-    html {
-        font-size: .9rem;
-    }
+  html {
+    font-size: .9rem;
+  }
 
-    main {
-        padding: 0;
-        grid-template-columns: 1fr 45ch 1fr;
-        grid-template-rows: 90% 1fr;
-    }
+  main {
+    padding: 0;
+    grid-template-columns: 1fr 45ch 1fr;
+    grid-template-rows: 90% 1fr;
+  }
 }
 
 @media (min-width: 48rem) {
 
-    html {
-        font-size: 1.25rem;
-    }
+  html {
+    font-size: 1.25rem;
+  }
 
-    main {
-        padding: 0 1rem;
-        grid-template-columns: 1fr 40ch 1fr;
-    }
+  main {
+    padding: 0 1rem;
+    grid-template-columns: 1fr 40ch 1fr;
+  }
 }
 
 @media (min-width: 65rem) {
 
-    html {
-        font-size: 1.5rem;
-    }
+  html {
+    font-size: 1.5rem;
+  }
 
-    main {
-        padding: 1.25rem;
-        grid-template-columns: 1fr 45ch 1fr;
-    }
+  main {
+    padding: 1.25rem;
+    grid-template-columns: 1fr 45ch 1fr;
+  }
 }
 
 @media (min-width: 80rem) {
 
-    html {
-        font-size: 1.75rem;
-    }
+  html {
+    font-size: 1.75rem;
+  }
 
-    main {
-        padding: 2rem;
-        grid-template-columns: 1fr 50ch 1fr;
-    }
+  main {
+    padding: 2rem;
+    grid-template-columns: 1fr 50ch 1fr;
+  }
 }
 
 #win {
-    background: #202020;
-    grid-area: win;
-    padding: 1rem;
-    overflow-y: auto;
+  background: #202020;
+  grid-area: win;
+  padding: 1rem;
+  overflow-y: auto;
 }
 
 #stat-l {
-    background: #161616;
-    grid-area: stat-l;
-    padding: 1rem;
+  background: #161616;
+  grid-area: stat-l;
+  padding: 1rem;
 }
 
 #stat-r {
-    background: #161616;
-    grid-area: stat-r;
-    padding: 1rem;
+  background: #161616;
+  grid-area: stat-r;
+  padding: 1rem;
 }
 
 #inp {
-    background: #202020;
-    grid-area: inp;
-    padding: .25rem;
+  background: #202020;
+  grid-area: inp;
+  padding: .25rem;
 }
 
 #inp input {
-    width: 100%;
-    height: 100%;
-    background: #161616;
-    padding: .25rem;
-    color: #fffa;
-    outline: none;
-    border: none;
-    font-size: 1.5rem;
-    font-family: 'Times New Roman', Times, serif;
-    caret-color: #fff6;
+  width: 100%;
+  height: 100%;
+  background: #161616;
+  padding: .25rem;
+  color: #fffa;
+  outline: none;
+  border: none;
+  font-size: 1.5rem;
+  font-family: 'Times New Roman', Times, serif;
+  caret-color: #fff6;
 }
 
 #inp input::placeholder {
-    color: #fff5;
+  color: #fff5;
 }
 
 #win p {
-    line-height: 1.4;
-    margin-bottom: .5rem;
+  line-height: 1.4;
+  margin-bottom: .5rem;
 }
 
 #win span {
-    display: block;
-    line-height: 1.4;
+  display: block;
+  line-height: 1.4;
 }
 
 #win hr {
-    border-color: #fff4;
-    margin-bottom: 1rem;
-    margin-top: .5rem;
+  border-color: #fff4;
+  margin-bottom: 1rem;
+  margin-top: .5rem;
 }
