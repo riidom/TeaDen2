@@ -55,8 +55,18 @@ Room.add({
 // Connections
 
 
-Connection.add('path n bench')
-Connection.add('bench n forest_1')
+Connection.add('path w bench')
+Connection.add('path e farm')
+Connection.add('path n forest_1')
+Connection.add('forest_1 n forest_2')
+
+Block.add('path', 'n',
+    () => {
+        Person.hasVisited('farm')
+    },
+    "Without any idea it seems to be too dangerous to enter that forest.",
+    "Remembering most of the map drawn on the wall of the farm building, you feel confident to enter the forest."
+)
 
 
 
@@ -81,5 +91,10 @@ Room.addDescr('forest_1',
 Room.addDescr('forest_2',
     "Deep inside the forest, it is dark.",
     "Further $, the forest is very dark."
+)
+
+Room.addDescr('farm',
+    "A farm from someone who used to live here. There is a map drawn on the outer wall of the main building; seemingly, the local area and especially the forest.",
+    "To the $, there are some farm buildings, though it is very quiet there."
 )
 

@@ -4,7 +4,7 @@ import Commands from '/core/commands.js'
 const Room = {
 
     init: function () {
-        Commands.add('look', /^(?:look)$/, function () {
+        Commands.addCommand('look', /^(?:look)$/, function () {
             const player_loc = D.player.location
             return D[player_loc].descr
         })

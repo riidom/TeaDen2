@@ -1,7 +1,7 @@
 import { checkForOverwrite } from '/core/util.js'
 const Commands = {
 
-    add: function (name, regex, func) {
+    addCommand: function (name, regex, func) {
         checkForOverwrite(name, 'command')
         // in module, func must be arrow function (bc. context of this)
         C[name] = {
@@ -20,6 +20,11 @@ const Commands = {
             alias: origin,
         }
     },
+
+
+    addFilter: function () {
+        
+      },
 
     
     evaluate: function (input) {

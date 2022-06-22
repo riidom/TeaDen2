@@ -15,7 +15,7 @@ const Connection = {
 
 
     init: function () {
-        Commands.add(
+        Commands.addCommand(
             'go',
             /^(n|e|s|w|u|d|i|o|north|east|south|west|up|down|in|out)$/,
             (input) => {
