@@ -1,7 +1,6 @@
-import Connection from '/module/connection.js'
-import Person from '/module/person.js'
-import Room from '/module/room.js'
-
+import Person from '/element/person.js'
+import Room from '/element/room.js'
+import Connection from '/element/connection.js'
 
 
 // Persons

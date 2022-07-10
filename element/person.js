@@ -1,10 +1,12 @@
 import { checkForOverwrite } from '/core/util.js'
-const Person = {
 
-  init: function () { },
+class Person {
 
 
-  add: function (p) {
+  static init () { }
+  
+  
+  static add(p) {
     checkForOverwrite(p.id, 'person')
     D[p.id] = {
       type: 'person',
@@ -14,20 +16,20 @@ const Person = {
       lastVisitedPlace: undefined,
     }
     D[p.id].visitedPlaces.add(p.location)
-  },
+  }
 
 
-  move: function (to_loc) {
+  static move (to_loc) {
     D[p.id].lastVisitedPlace = D[p.id].location
     D[p.id].location = to_loc
     D[p.id].visitedPlaces.add(to_loc)
-  },
+  }
 
 
-  hasVisited: function (loc) {
+  static hasVisited (loc) {
     return D[p.id].visitedPlaces.has(loc)
-  },
+  }
 
-  describe: function () { }
+  static describe () { }
 }
 export default Person

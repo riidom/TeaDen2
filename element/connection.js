@@ -1,8 +1,9 @@
 import Commands from '/core/commands.js'
 import { checkForOverwrite } from '/core/util.js'
-const Connection = {
 
-  dir: {
+class Connection {
+
+  static dir = {
     'n': { opp: 's', name: 'north' },
     'e': { opp: 'w', name: 'east' },
     's': { opp: 'n', name: 'south' },
@@ -11,10 +12,10 @@ const Connection = {
     'd': { opp: 'u', name: 'down' },
     'i': { opp: 'o', name: 'in' },
     'o': { opp: 'i', name: 'out' },
-  },
+  }
 
 
-  init: function () {
+  static init() {
     Commands.addCommand(
       'go',
       /^(n|e|s|w|u|d|i|o|north|east|south|west|up|down|in|out)$/,
@@ -39,24 +40,24 @@ const Connection = {
       /^(?:go) (n|e|s|w|u|d|i|o|north|east|south|west|up|down|in|out)$/,
       'go'
     )
-  },
+  }
 
 
-  getOpp: function (d) {
+  static getOpp(d) {
     return this.dir[d].opp
-  },
+  }
 
 
-  add: function (newWay, twoWay = true) {
+  static add(newWay, twoWay = true) {
     const [r1, d, r2] = newWay.split(' ')
     this.addLiteral(r1, d, r2)
     if (twoWay) {
       this.addLiteral(r2, this.getOpp(d), r1)
     }
-  },
+  }
 
 
-  addLiteral: function (r1, d, r2) {
+  static addLiteral(r1, d, r2) {
     const id = `${r1} ${d} ${r2}`
     checkForOverwrite(id, 'connection')
     D[id] = {
@@ -69,9 +70,10 @@ const Connection = {
 
     D[r1].exitTo[d] = r2
     D[r2].entryFrom[this.getOpp(d)] = r1
-  },
+  }
+  
 
-  describe: function () {
+  static describe() {
     const loc = D.player.location
     if (!D[loc].exitTo) {
       return ["There are no exits here.", 1]
