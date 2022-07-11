@@ -1,4 +1,4 @@
-import output from './core/output.js'
+import Output from './core/output.js'
 import Commands from './core/commands.js'
 import { collectText } from './core/util.js'
 
@@ -21,7 +21,7 @@ setTimeout(() => {
     }
   })
 
-  output.addText("Welcome adventurer!", 'p', 'em')
+  Output.addText("Welcome adventurer!", 'p', 'em')
 
   moduleNames.forEach(n => eval(`${n}.init()`))
 
@@ -36,17 +36,17 @@ function processInput (input_raw) {
 
   if (result) {
     if (F.clearScreen) {
-      output.clearText()
+      Output.clearText()
       F.clearScreen = false
       // description from last turn in italics on top
-      output.addText(result, 'p', 'em')
+      Output.addText(result, 'p', 'em')
       describe()
     } else {
-      output.addText(result)
+      Output.addText(result)
     }
 
   } else {
-    output.addText(`Don't understand '${input_proc}'.`)
+    Output.addText(`Don't understand '${input_proc}'.`)
   }
 }
 
@@ -67,11 +67,11 @@ function describe () {
   // 'span' is just a misused 'p' with no margin-bottom
   partsArray.forEach(text => {
     if (text[1] > 0) {
-      output.addText(text[0])
+      Output.addText(text[0])
     } else if (text[1] < 0) {
-      output.addText(text[0], 'span')
+      Output.addText(text[0], 'span')
     } else {
-      output.addHtml('<hr>')
+      Output.addHtml('<hr>')
     }
   })
 }
