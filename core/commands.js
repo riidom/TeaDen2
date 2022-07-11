@@ -1,33 +1,36 @@
-import { checkForOverwrite } from '/core/util.js'
-const Commands = {
+import { Base } from '/core/_base.js'
+class Commands extends Base {
 
-  addCommand: function (name, regex, func) {
-    checkForOverwrite(name, 'command')
+  static addCommand(name, regex, func) {
+    super.checkForOverwrite(name, 'command')
     // in module, func must be arrow function (bc. context of this)
     C[name] = {
       regex,
       func,
       alias: false,
     }
-  },
+  }
 
 
-  addAlias: function (name, regex, origin) {
-    checkForOverwrite(name, 'command-alias')
+  static addAlias(name, regex, origin) {
+    super.checkForOverwrite(name, 'command-alias')
     C[name] = {
       regex,
       func: false,
       alias: origin,
     }
-  },
+  }
 
 
-  addFilter: function () {
+  static addFilter(filterName, cmdName) {
+    if (!CF[cmdName]) {
+      CF[cmdName] = []
+    }
+    CF[cmdName].push(filterName)
+  }
 
-  },
 
-
-  evaluate: function (input) {
+  static evaluate(input) {
     for (let name in C) {
       const command = C[name]
       const result = command.regex.exec(input)
@@ -47,7 +50,7 @@ const Commands = {
         }
       }
     }
-  },
+  }
   
 }
 export default Commands

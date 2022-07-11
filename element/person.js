@@ -1,13 +1,13 @@
-import { checkForOverwrite } from '/core/util.js'
+import { Base } from '/core/_base.js'
 
-class Person {
+class Person extends Base {
 
 
   static init () { }
   
   
-  static add(p) {
-    checkForOverwrite(p.id, 'person')
+  static add (p) {
+    super.checkForOverwrite(p.id, 'person')
     D[p.id] = {
       type: 'person',
       name: p.name,
@@ -19,7 +19,7 @@ class Person {
   }
 
 
-  static move (to_loc) {
+  static move (person, to_loc) {
     D[p.id].lastVisitedPlace = D[p.id].location
     D[p.id].location = to_loc
     D[p.id].visitedPlaces.add(to_loc)

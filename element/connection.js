@@ -1,7 +1,7 @@
 import Commands from '/core/commands.js'
-import { checkForOverwrite } from '/core/util.js'
+import { Base } from '/core/_base.js'
 
-class Connection {
+class Connection extends Base {
 
   static dir = {
     'n': { opp: 's', name: 'north' },
@@ -59,7 +59,7 @@ class Connection {
 
   static addLiteral(r1, d, r2) {
     const id = `${r1} ${d} ${r2}`
-    checkForOverwrite(id, 'connection')
+    super.checkForOverwrite(id, 'connection')
     D[id] = {
       type: 'connection',
       r1, d, r2

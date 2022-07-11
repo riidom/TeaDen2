@@ -1,7 +1,7 @@
-import { checkForOverwrite } from '/core/util.js'
 import Commands from '/core/commands.js'
+import { Base } from '/core/_base.js'
 
-class Room {
+class Room extends Base {
 
   static init() {
     Commands.addCommand('look', /^(?:look)$/, function () {
@@ -12,7 +12,7 @@ class Room {
 
 
   static add(p) {
-    checkForOverwrite(p.id, 'room')
+    super.checkForOverwrite(p.id, 'room')
     D[p.id] = {
       type: 'room',
       name: p.name,
