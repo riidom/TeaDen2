@@ -1,5 +1,5 @@
 import Commands from '/core/commands.js'
-import { Base } from '/core/_base.js'
+import Base from '/core/_base.js'
 
 class Room extends Base {
 

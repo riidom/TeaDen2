@@ -1,4 +1,4 @@
-import { Base } from '/core/_base.js'
+import Base from '/core/_base.js'
 class Commands extends Base {
 
   static addCommand(name, regex, func) {

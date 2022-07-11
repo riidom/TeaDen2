@@ -1,4 +1,4 @@
-import { Base } from '/core/_base.js'
+import Base from '/core/_base.js'
 
 class Person extends Base {
 
